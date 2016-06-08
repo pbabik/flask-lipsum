@@ -48,7 +48,7 @@ def crossdomain(origin=None, methods=None, headers=None,
 @app.route("/api",methods=['GET','OPTIONS'])
 @crossdomain(origin='*')
 def get_ipsum():
-    n_paragraphs = request.args.get('paragraphs',5)
+    n_paragraphs = int(request.args.get('paragraphs',5))
     content = get_paragraphs(n_paragraphs)
     return jsonify({"data":content})
 
